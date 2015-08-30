@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="txtgrow.js"></script>
+<style>
+body
+{
+font-family:Helvetica;
+}
+#txt1
+{
+width:200px;
+position:relative;
+top:200px;
+left:200px;
+font-size:32px;
+font-family:Helvetica;
+}
+#txt2
+{
+width:250px;
+position:absolute;
+right:0px;
+top:40px;
+}
+</style>
+</head>
+<body>
+<textarea id="txt1" rows=3></textarea>
+<textarea id="txt2" rows=1></textarea>
+</body>
+
+<script>
+$('#txt1').initgrowth({width:400});
+$('#txt2').initgrowth();
+</script>
+</html>

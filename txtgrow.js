@@ -1,13 +1,16 @@
 (function($){
-	$.fn.initgrowth=function(){
+	$.fn.initgrowth=function(options){
 		domelem = this.filter("textarea");
+		var settings = $.extend({
+            width:200
+        }, options );
 		domelem.addClass('txtgrowjs');
-		domelem.css('font-size','18px');
-		domelem.css({'resize':'none','height':domelem.height()/2,'font-family':'Helvetica','overflow':'hidden','word-wrap':'break-word','white-space':'pre-wrap'});
+		domelem.attr('rows',1);
+		domelem.css({'resize':'none','height':4*domelem.height()/5,'overflow':'hidden','word-wrap':'break-word','white-space':'pre-wrap'});
 		$('body').append('<div id="'+domelem.attr('id')+'_ghost"></div>');
-		$('#'+domelem.attr('id')+'_ghost').css({'z-index':-1,'font-size':'18px','font-family':'Helvetica','position':'absolute','left':domelem.offset().left,'top':domelem.offset().top,'width':domelem.width(),'min-height':domelem.height(),'word-wrap':'break-word','white-space':'pre-wrap','padding':2,'border':'1px solid black'});
+		$('#'+domelem.attr('id')+'_ghost').css({'z-index':-1,'font-size':domelem.css('font-size'),'font-family':domelem.css('font-family'),'position':'absolute','left':domelem.offset().left,'top':domelem.offset().top,'width':settings.width,'min-height':domelem.height(),'word-wrap':'break-word','white-space':'pre-wrap','padding':domelem.css('padding-top')+' '+domelem.css('padding-right')+' '+domelem.css('padding-bottom')+' '+domelem.css('padding-left'),'border':domelem.css('border')});
 		
-		return this;
+		return this.css({width:settings.width});
 	}
 	
 	$('.txtgrowjs').live('keypress', function (e) 
