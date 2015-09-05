@@ -36,6 +36,34 @@
 		}
     });
 	
+	$('.txtgrowjs').live('paste', function ()
+	{
+		var elem = $(this);
+		var id=elem.attr('id');
+		setTimeout(function()
+		{
+			str = elem.val();
+			$('#'+id+'_ghost').append(str);
+			elem.css('height', $('#'+id+'_ghost').height());
+		},5);
+		
+	});
+	
+	$('.txtgrowjs').live('select',function()
+	{
+		var elem = $(this);
+		var id=elem.attr('id');
+		elem.keyup(function()
+		{
+			setTimeout(function()
+			{
+				str=elem.val();
+				$('#'+id+'_ghost').empty().append(str);
+				elem.css('height', $('#'+id+'_ghost').height());
+			},5);
+		});
+	});
+	
 	
 }(jQuery));
 
