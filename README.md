@@ -8,4 +8,4 @@ and voila!, you are all set.
 ####initgrowth()
 By default, the textarea will span a width of _200px_ but the optional argument **options** takes width as a parameter :
  
-    $("#elementid").initgrowth({width: _width_ });
+    $("#elementid").initgrowth({width:desired_width});
